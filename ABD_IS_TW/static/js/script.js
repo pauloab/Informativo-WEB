@@ -9,7 +9,7 @@ const carousel = new Glide('.glide', {
     type: 'carousel',
     autoplay: 4000,
     gap: 10,
-    peek: 300,
+    peek: { before: 0, after: 800 }    ,
     perView: 1
 });
 

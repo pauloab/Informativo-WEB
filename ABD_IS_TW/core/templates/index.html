@@ -14,32 +14,42 @@
 
 <div class="row">
 
+    <!-- Contenido principal-->
+    <div class="my-container">
+        <div class="sub-tittle-border">
+            <h2>
+                <span>LAS NOTICIAS MÁS DESTACADAS DE LA SEMANA </span>
+            </h2>
+            <a class="btn">
+                <i class="fas fa-plus-circle"></i> Más noticias
+            </a>
+        </div>
 
-    <div class="col-12 col-md-4 mb-3">
-        {% for noticia in noticias %}
-        <div class="card">
-            <img src="{{ noticia.portada.url }}" class="card-img-top" alt="...">
+        <div class="col-12 col-md-4 mb-3">
+            {% for noticia in noticias %}
+            <div class="card">
+                <img src="{{ noticia.portada.url }}" class="card-img-top" alt="...">
 
-            <div class="card-img-overlay pb-0">
-                <h5 class="card-title"></h5>
-                <div class="card-footer">
-                    <h6 class="category-card">
-                        {{ noticia.categoria.categoria }}
-                    </h6>
-                    <h4>
-                        {{ noticia.titulo }}
-                    </h4>
-                    <p class="text-card-p">
-                        <i class="far fa-clock"></i> {{ noticia.fecha_publicacion }}
-                    </p>
+                <div class="card-img-overlay pb-0">
+                    <h5 class="card-title"></h5>
+                    <div class="card-footer">
+                        <h6 class="category-card">
+                            {{ noticia.categoria.categoria }}
+                        </h6>
+                        <h4>
+                            {{ noticia.titulo }}
+                        </h4>
+                        <p class="text-card-p">
+                            <i class="far fa-clock"></i> {{ noticia.fecha_publicacion }}
+                        </p>
+                    </div>
                 </div>
             </div>
+            {% empty %}
+            <h1>No hay noticias para mostrar.</h1>
+            {% endfor %}
         </div>
-        {% empty %}
-        <h1>No hay noticias para mostrar.</h1>
-        {% endfor %}
-    </div>
 
 
 
-    {% endblock %}
+        {% endblock %}
