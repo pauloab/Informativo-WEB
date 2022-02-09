@@ -12,9 +12,13 @@ class Usuario(models.Model):
     password = models.TextField(null=False,blank=False)
     profile_picture = models.ImageField(max_length=255,null=False,blank=False,upload_to="fotos/perfiles")
     is_sancionado = models.BooleanField(default=False,null=False,blank=False)
+    def __str__(self) -> str:
+        return str(self.user_name)
 
 class Categoria(models.Model):
     categoria = models.CharField(max_length=150,null=False,blank=False)
+    def __str__(self) -> str:
+        return str(self.categoria)
 
 class Articulo(models.Model):
     titulo = models.CharField(max_length=200,null=False,blank=False)

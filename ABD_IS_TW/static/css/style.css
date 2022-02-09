@@ -221,3 +221,16 @@ body {
     margin-left: 1px;
     margin-right: 1px;
 }
+
+.category-card {
+    display: inline;
+    color: #fff;
+    background-color: red;
+    padding: 0px 15px;
+    border-radius: 5px;
+}
+
+.text-card-p {
+    font-weight: 100;
+    color: rgb(146, 135, 135);
+}
