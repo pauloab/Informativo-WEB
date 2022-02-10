@@ -1,0 +1,41 @@
+.clean-background {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background: rgb(9, 9, 121);
+	background: radial-gradient(
+		circle,
+		rgba(9, 9, 121, 1) 0%,
+		rgba(1, 0, 88, 1) 40%
+	);
+}
+.card{
+    width: 40%;
+    height: fit-content;
+}
+.logo {
+    width: 18vh;
+    height: 18vh;
+}
+.card h3{
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 768px){
+    .card{
+        width: 90%;
+    }
+    .card h3{
+        font-size: 15px;
+    }
+    .logo {
+        width: 13vh;
+        height: 13vh;
+    }
+    .card-header {
+        margin: 0;
+        padding: 0;
+    }
+}

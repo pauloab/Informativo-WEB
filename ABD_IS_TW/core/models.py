@@ -1,4 +1,5 @@
 from email.policy import default
+from math import fabs
 import profile
 from timeit import default_timer
 from django.db import models
@@ -12,6 +13,8 @@ class Usuario(models.Model):
     password = models.TextField(null=False,blank=False)
     profile_picture = models.ImageField(max_length=255,null=False,blank=False,upload_to="fotos/perfiles")
     is_sancionado = models.BooleanField(default=False,null=False,blank=False)
+    # Campo para almacenar la sesión
+    token = models.CharField(max_length=24,unique=True,null=True, blank=True)
     def __str__(self) -> str:
         return str(self.user_name)
 
