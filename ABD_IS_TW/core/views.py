@@ -1,4 +1,4 @@
-from ast import Return
+from ast import If, Return
 from audioop import reverse
 import random
 import string
@@ -56,3 +56,8 @@ def logout(request: HttpRequest):
         usr.save()
         return redirect("index")
     return HttpResponseBadRequest()
+
+def profile_info(request: HttpRequest):
+    context = {"usuario":get_user(request)}
+    if request.method == "GET":
+        return render(request,"showProfile.html",context)

@@ -1,10 +1,11 @@
+{% load static %}
 <nav class="navbar p-0 navbar-expand-lg navbar-dark">
 	<div class="nav-container p-0">
 		<div class="burger-tittle">
 			<a class="btn" id="menu-btn">
 				<i class="fas fa-bars"></i>
 			</a>
-			<a class="navbar-brand" href="#">SIUTMACH</a>
+			<a class="navbar-brand" href="{% url 'index' %}">SIUTMACH</a>
 		</div>
 		<div class="search-container">
 			<form class="d-flex w-100">
@@ -21,11 +22,16 @@
 			</form>
 		</div>
 		{% if usuario %}
-		<a href="{% url 'logout' %}" class="btn btn-secondary m-3 login-btn">
-			Cerrar Sesión
+		<a class="ml-auto" href="{% url 'userInfo' %}">
+		{% if usuario.profile_picture %}
+		<img class="img-fluid rounded-circle profile-pic-thumb" src="{{ usuario.profile_picture.url }}" alt="profile" >
+		{% else %}
+		
+		<img class="img-fluid rounded-circle profile-pic-thumb" src="{% static "img/user-64.png" %}" alt="profile" >
+		{% endif %}
 		</a>
 		{% else %}
-		<a href="{% url 'login' %}" class="btn btn-primary m-3 login-btn">
+		<a href="{% url 'login' %}" class="btn btn-primary m-3 login-btn ml-auto">
 			Iniciar sesión
 		</a>
 		{% endif %}
