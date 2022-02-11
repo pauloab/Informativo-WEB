@@ -3,7 +3,6 @@ from math import fabs
 import profile
 from timeit import default_timer
 from django.db import models
-from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 class Usuario(models.Model):
