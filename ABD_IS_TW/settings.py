@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'ABD_IS_TW.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
- 'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv("DB_NAME"),
         'USER': os.getenv("DB_USERNAME"),
@@ -145,3 +145,7 @@ MEDIA_URL = '/media/'
 
 # Cryspy Forms Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+# ck editor config
+
