@@ -11,7 +11,7 @@ class Usuario(models.Model):
     last_name = models.CharField(max_length=150,null=False,blank=False)
     email = models.EmailField(max_length=150,null=False,blank=False,unique=True)
     password = models.TextField(null=False,blank=False)
-    profile_picture = models.ImageField(max_length=255,null=False,blank=False,upload_to="fotos/perfiles")
+    profile_picture = models.ImageField(max_length=255,null=True,blank=True,upload_to="fotos/perfiles")
     is_sancionado = models.BooleanField(default=False,null=False,blank=False)
     # Campo para almacenar la sesión
     token = models.CharField(max_length=24,unique=True,null=True, blank=True)
@@ -20,6 +20,7 @@ class Usuario(models.Model):
 
 class Categoria(models.Model):
     categoria = models.CharField(max_length=150,null=False,blank=False)
+    fa_icon = models.CharField(max_length=150,null=False, blank=False)
     def __str__(self) -> str:
         return str(self.categoria)
 
@@ -28,8 +29,8 @@ class Articulo(models.Model):
     fecha_publicacion = models.DateField(null=False,blank=False,auto_now=True)
     contenido = models.TextField(max_length=250,null=False,blank=False)
     portada = models.ImageField(null=False,blank=False,upload_to="portadas/articulos")
-    usuario = models.ForeignKey(to=Usuario,null=False,blank=False,on_delete=models.CASCADE)
-    categoria = models.ForeignKey(to=Categoria,null=False,blank=False,on_delete=models.CASCADE)
+    usuario = models.ForeignKey(to=Usuario,null=False,blank=False,on_delete=models.CASCADE, related_name="articulos")
+    categoria = models.ForeignKey(to=Categoria,null=False,blank=False,on_delete=models.CASCADE, related_name="articulos")
 
 
 

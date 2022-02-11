@@ -1,0 +1,32 @@
+.portada-noticia {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+.encabezado{
+    position: relative;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 53%);
+}
+
+.encabezado .info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20px;
+    border-left: 1px solid #fff;
+    padding-left: 10px;
+}
+
+.noticia-content{
+    font-size: medium;
+}

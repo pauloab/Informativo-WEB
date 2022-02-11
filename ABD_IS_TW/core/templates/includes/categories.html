@@ -1,0 +1,9 @@
+<div class="row pt-3">
+    {% for categoria in categorias %}
+	<a class="category-btn nav-link" href="{% url 'articleByCategory' categoria.id %}">
+		<i class="{{ categoria.fa_icon }}"></i>
+		<br />
+		{{ categoria.categoria }}
+	</a>
+    {% endfor %}
+</div>

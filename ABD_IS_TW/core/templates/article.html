@@ -1,0 +1,32 @@
+{% extends 'layout/layoutMain.html' %}
+{% load static %} 
+{% block title %}{{ articulo.titulo }}{% endblock %} 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+{% endblock %}
+{% block content %}
+<div class="encabezado">
+    <img class="portada-noticia" src="{{ articulo.portada.url }}" alt="foto">
+    <div class="overlay"></div>
+    <div class="info">
+        <h6 class="category-card">
+            {{ articulo.categoria.categoria }}
+        </h6>
+        <h1>{{ articulo.titulo }}</h1>
+        <div class="text-card-p">
+            <i class="fas fa-user"></i> <b>{{ articulo.usuario.user_name }}</b>  &nbsp; 
+            <i class="far fa-clock"></i> {{ articulo.fecha_publicacion }}
+        </div>
+    </div>
+</div>
+<div class="row p-3">
+    <div class="noticia-content col-12 col-md-9">
+        {{ articulo.contenido }}
+    </div>
+    <div class="col-12 col-md-3">
+        {% include 'includes/categories.html' %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -32,10 +32,12 @@ body {
 }
 
 .my-container {
+	position: relative;
 	transition: 0.4s;
-	min-height: 100%;
+	min-height: 90vh;
 	padding: 20px;
 	padding-bottom: 50px;
+
 }
 
 .active-nav {
@@ -70,6 +72,7 @@ body {
 }
 
 .footer {
+	position: absolute;
 	bottom: 0;
 }
 
@@ -168,6 +171,7 @@ body {
 .text-card-p {
 	font-weight: 100;
 	color: rgb(146, 135, 135);
+	margin-bottom: 0;
 }
 
 .search-container {
@@ -187,9 +191,13 @@ body {
 
 .profile-pic-thumb {
 	margin-left: auto;
-	margin-right: 10px;
+	margin-right: 20px;
+	
 	border: 2px solid #fff;
 	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 100%;
 }
 
 .profile-pic-thumb:hover{
@@ -200,7 +208,16 @@ body {
 	margin-left: auto !important;
 }
 
-@media screen and (max-width: 500px) {
+.profilePic {
+	width: 25vh;
+	height: 25vh;
+	border-radius: 100%;
+	object-fit: cover;
+	padding: 2px;
+	border: 1px solid #000;
+}
+
+@media screen and (max-width: 800px) {
 	.search-container {
 		width: 100%;
 		flex-grow: 1;
@@ -208,6 +225,10 @@ body {
 	.login-btn {
 		width: 100%;
         margin-left: 20px !important;
+	}
+	.profilePic {
+		width: 50vh;
+		height: 50vh;
 	}
 }
 
@@ -221,4 +242,27 @@ body {
 .card-body * {
 	text-align: center;
 	color: #000;
+}
+
+.category-btn {
+	text-align: center;
+	border: 1px solid #fff;
+	margin: 0;
+	padding: 20px;
+	width: 50%;
+	font-size: 20px;
+	font-weight: 100;
+}
+
+.category-btn > i{
+	margin: 10px;
+	font-size: 50px;
+}
+
+.new-card {
+	min-height: 100px;
+}
+
+.img-cover {
+	object-fit: cover;
 }

@@ -6,17 +6,27 @@
     <div class="row justify-content-center">
         <div class="card col-12 col-md-4 ">
             <div class="card-header d-flex justify-content-center mt-2">
-                <img class="img-fluid rounded-circle" width="25%" src="{{ usuario.profile_picture.url }}" alt="user">
+                {% if usuario.profile_picture %}
+                <img class="profilePic" src="{{ usuario.profile_picture.url }}" alt="user">
+                {% else %}
+                <img class="img-fluid rounded-circle"src="{% static 'img/user-64.png' %}" alt="user">
+                {% endif %}            
             </div>
             <div class="card-body">
                 <p><b>Nombre de usuario:</b> {{ usuario.user_name }}</p>
                 <p><b>Nombres:</b> {{ usuario.first_name }}</p>
                 <p><b>Apellidos:</b> {{ usuario.last_name }}</p>
                 <p><b>Email:</b> {{ usuario.email }}</p>
-                <p><b>Sencionado:</b> {% if usuario.is_sancionado %} SI {% else %} NO {% endif %}</p>
-                <a href="{% url 'logout' %}" class="btn btn-secondary w-100">
-                    Cerrar Sesión
-                </a>
+                <p><b>Sancionado:</b> {% if usuario.is_sancionado %} SI {% else %} NO {% endif %}</p>
+                <div class="d-flex m-0">
+                    <a href="{% url 'editProfile' %}" class="btn btn-secondary m-1 w-50">
+                        <i class="fas fa-pencil"></i> Editar
+                    </a>
+                    <a href="{% url 'logout' %}" class="btn btn-secondary m-1 w-50">
+                        <i class="fas fa-door-open"></i> Cerrar Sesión
+                    </a>
+                </div>
+
             </div>
 
         </div>

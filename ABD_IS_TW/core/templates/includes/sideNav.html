@@ -1,0 +1,34 @@
+<div
+	class="side-navbar d-flex justify-content-between flex-wrap flex-column"
+	id="sidebar"
+>
+	<ul class="nav flex-column text-white w-100">
+		<p class="pt-3 px-3 text-white">
+			<b>Categorias</b>
+		</p>
+		{% for categoria in categorias %}
+		<li class="ml-3">
+			<a class="nav-link" href="{% url 'articleByCategory' categoria.id %}">
+				<i class="{{ categoria.fa_icon }}"></i>
+				<span class="mx-2">{{ categoria.categoria }}</span>
+			</a>
+		</li>
+		{% endfor %} {% if usuario %}
+		<p class="pt-3 px-3 text-white">
+			<b>Control de Administrador</b>
+		</p>
+		<li class="ml-3">
+            <a class="nav-link" href="{% url 'category_list' %}">
+                <i class="fas fa-th-large"></i>
+                <span class="mx-2">Categorias</span>
+            </a>
+		</li>
+        <li class="ml-3">
+            <a class="nav-link" href="{% url 'userNewsList' %}">
+                <i class="fas fa-newspaper"></i>
+                <span class="mx-2">Mis Noticias</span>
+            </a>
+		</li>
+		{% endif %}
+	</ul>
+</div>

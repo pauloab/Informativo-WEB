@@ -8,7 +8,7 @@
 			<a class="navbar-brand" href="{% url 'index' %}">SIUTMACH</a>
 		</div>
 		<div class="search-container">
-			<form class="d-flex w-100">
+			<form method="get" action="{% url 'searchArticle' %}" class="d-flex w-100">
 				<input
 					type="text"
 					placeholder="Buscar..."
@@ -16,7 +16,7 @@
 					id="search"
 					name="search"
 				/>
-				<button type="submit" class="btn bg-light">
+				<button type="submit" class="btn bg-light ml-2">
 					<i class="fas fa-search"></i>
 				</button>
 			</form>
@@ -24,10 +24,9 @@
 		{% if usuario %}
 		<a class="ml-auto" href="{% url 'userInfo' %}">
 		{% if usuario.profile_picture %}
-		<img class="img-fluid rounded-circle profile-pic-thumb" src="{{ usuario.profile_picture.url }}" alt="profile" >
+			<img class="profile-pic-thumb" src="{{ usuario.profile_picture.url }}" alt="profile" >
 		{% else %}
-		
-		<img class="img-fluid rounded-circle profile-pic-thumb" src="{% static "img/user-64.png" %}" alt="profile" >
+			<img class="img-fluid rounded-circle profile-pic-thumb" src="{% static "img/user-64.png" %}" alt="profile" >
 		{% endif %}
 		</a>
 		{% else %}
