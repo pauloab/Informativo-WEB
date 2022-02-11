@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import imp
 import os
 
 from dotenv import load_dotenv
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ABD_IS_TW.core',
     'crispy_forms',
+    'django_quill',
 ]
 
 MIDDLEWARE = [
@@ -147,5 +149,25 @@ MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-# ck editor config
+# quill editor config
+QUILL_CONFIGS = {
+    'default':{
+    'theme': 'snow',
+    'modules': {
+        'syntax': True,
+        'toolbar': [
+            [
+                {'font': []},
+                {'header': []},
+                {'align': []},
+                'bold', 'italic', 'underline', 'strike', 'blockquote',
+                {'color': []},
+                {'background': []},
+            ],
+            ['code-block', 'link'],
+            ['clean'],
+        ]
+    }
+    }
+}
 

@@ -21,7 +21,7 @@
 </div>
 <div class="row p-3">
     <div class="noticia-content col-12 col-md-9">
-        {{ articulo.contenido }}
+        {{ articulo.contenido.html|safe }}
     </div>
     <div class="col-12 col-md-3">
         {% include 'includes/categories.html' %}

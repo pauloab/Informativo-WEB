@@ -3,6 +3,7 @@ from math import fabs
 import profile
 from timeit import default_timer
 from django.db import models
+from django_quill.fields import QuillField
 
 # Create your models here.
 class Usuario(models.Model):
@@ -27,12 +28,12 @@ class Categoria(models.Model):
 class Articulo(models.Model):
     titulo = models.CharField(max_length=200,null=False,blank=False)
     fecha_publicacion = models.DateField(null=False,blank=False,auto_now=True)
-    contenido = models.TextField(max_length=250,null=False,blank=False)
+    contenido = QuillField()
     portada = models.ImageField(null=False,blank=False,upload_to="portadas/articulos")
     usuario = models.ForeignKey(to=Usuario,null=False,blank=False,on_delete=models.CASCADE, related_name="articulos")
     categoria = models.ForeignKey(to=Categoria,null=False,blank=False,on_delete=models.CASCADE, related_name="articulos")
 
-
+    
 
 
 
