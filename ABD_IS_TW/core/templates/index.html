@@ -2,6 +2,7 @@
  {% load static %} 
  {% block title %}INICIO{% endblock%} 
  {% block content %}
+<img class="img-fluid banner-logo" src="{% static 'img/LogoBanner.png' %}" alt="">
 <h1>
     Populares
 </h1>
@@ -17,7 +18,7 @@
 <div class="row">
     {% for noticia in noticias %}
     <div class="col-12 col-md-4 my-3 ">
-        <div class="card h-100">
+        <div class="card article-card h-100">
             <a href="{% url 'article' noticia.id %}">
                 <img src="{{ noticia.portada.url }}"height="220px" class="card-img-top img-cover" alt="...">
                 <div class="card-img-overlay pb-0">

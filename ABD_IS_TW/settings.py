@@ -148,26 +148,3 @@ MEDIA_URL = '/media/'
 # Cryspy Forms Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-# quill editor config
-QUILL_CONFIGS = {
-    'default':{
-    'theme': 'snow',
-    'modules': {
-        'syntax': True,
-        'toolbar': [
-            [
-                {'font': []},
-                {'header': []},
-                {'align': []},
-                'bold', 'italic', 'underline', 'strike', 'blockquote',
-                {'color': []},
-                {'background': []},
-            ],
-            ['code-block', 'link'],
-            ['clean'],
-        ]
-    }
-    }
-}
-

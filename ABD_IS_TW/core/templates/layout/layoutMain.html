@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -15,20 +16,19 @@
     <header>
         {% include 'includes/nav.html' %}
     </header>
-    
-    {% include 'includes/sidenav.html' %}
-    <!-- Contenido principal-->
-    <div class="my-container">
-        {% block content %} {% endblock %}
-        <footer class="footer">
-            <p>
-                © 2022 - 2022 SIUTMACH.COM - Todos los derechos reservados.
-            </p>
-        </footer>
+    <div class="d-flex w-100">
+        {% include 'includes/sidenav.html' %}
+        <!-- Contenido principal-->
+        <div class="my-container">
+            
+            {% block content %} {% endblock %}
+            <footer class="footer">
+                <p>
+                    © 2022 - 2022 SIUTMACH.COM - Todos los derechos reservados.
+                </p>
+            </footer>
+        </div>
     </div>
-
-
-
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

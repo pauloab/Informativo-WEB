@@ -25,8 +25,15 @@
     margin: 20px;
     border-left: 1px solid #fff;
     padding-left: 10px;
+    color: #fff;
 }
 
 .noticia-content{
     font-size: medium;
+    box-sizing: border-box;
+    align-items: center;
+    
+}
+.noticia-content * {
+    color: #000;
 }

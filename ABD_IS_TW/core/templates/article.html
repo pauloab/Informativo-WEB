@@ -3,6 +3,8 @@
 {% block title %}{{ articulo.titulo }}{% endblock %} 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/article.css' %}">
+<link rel="stylesheet" href="//cdn.quilljs.com/0.16.0/quill.snow.css" />
+
 {% endblock %}
 {% block content %}
 <div class="encabezado">
@@ -29,4 +31,7 @@
 </div>
 
 
+{% endblock %}
+{% block scripts %}
+<script src="//cdn.quilljs.com/0.16.0/quill.min.js"></script>
 {% endblock %}
