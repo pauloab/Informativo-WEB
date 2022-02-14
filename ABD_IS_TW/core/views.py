@@ -42,7 +42,7 @@ def login(request: HttpRequest):
                 user_name=username, password=password).first()
             if not usuario:
                 loginForm.add_error(None, error="Credenciales Incorrectas.")
-            elif usuario.sancionado:
+            elif usuario.is_sancionado:
                 loginForm.add_error(None, error="Este usuario se encuentra sancionado.")
             else:
                 token = ''.join(random.choice(
