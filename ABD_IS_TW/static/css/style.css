@@ -268,10 +268,15 @@ body {
 	height: 220px;
 	object-fit: contain;
 } 
+
+
 .article-card  *{
 	color: #fff;
 	
-
+}
+.article-card {
+	transition: 0.5s;
+	transform: scale(1) ;
 }
 .article-card:hover{
 	transition: 0.5s;
