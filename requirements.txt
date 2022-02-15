@@ -5,4 +5,5 @@ django-image-uploader-widget==0.1.4
 Pillow==9.0.0
 psycopg2==2.9.3
 python-dotenv==0.19.2
+django-quill-editor==0.1.40
 

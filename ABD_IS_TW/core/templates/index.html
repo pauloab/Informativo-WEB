@@ -1,7 +1,4 @@
- {% extends 'layout/layoutMain.html' %}
- {% load static %} 
- {% block title %}INICIO{% endblock%} 
- {% block content %}
+ {% extends 'layout/layoutMain.html' %} {% load static %} {% block title %}INICIO{% endblock%} {% block content %}
 <img class="img-fluid banner-logo" src="{% static 'img/LogoBanner.png' %}" alt="">
 <h1>
     Populares
@@ -20,7 +17,7 @@
     <div class="col-12 col-md-4 my-3 ">
         <div class="card article-card h-100">
             <a href="{% url 'article' noticia.id %}">
-                <img src="{{ noticia.portada.url }}"height="220px" class="card-img-top img-cover" alt="...">
+                <img src="{{ noticia.portada.url }}" height="220px" class="card-img-top img-cover" alt="...">
                 <div class="card-img-overlay pb-0">
                     <h5 class="card-title"></h5>
                     <div class="card-footer mx-2 mb-2">
@@ -42,4 +39,47 @@
     <h1>No hay noticias para mostrar.</h1>
     {% endfor %}
 </div>
-{% endblock %}
+
+{% for categoria in categorias %} {% if categoria.articulos.all %}
+<h1>
+    <i class="{{ categoria.fa_icon }}"></i> {{ categoria.categoria }}
+</h1>
+
+<div class="sub-tittle-border">
+    <h2>
+        <span>{{ categoria.categoria }} más recientes de la semana </span>
+    </h2>
+    <a class="btn">
+        <i class="fas fa-plus-circle"></i> Más noticias
+    </a>
+</div>
+
+<div class="row">
+
+    {% for articulo in categoria.articulos.all|slice:":6" %}
+    <div class="col-12 col-md-4 my-3 ">
+        <div class="card article-card h-100">
+            <a href="{% url 'article' articulo.id %}">
+                <img src="{{ articulo.portada.url }}" height="220px" class="card-img-top img-cover" alt="...">
+                <div class="card-img-overlay pb-0">
+                    <h5 class="card-title"></h5>
+                    <div class="card-footer mx-2 mb-2">
+                        <h6 class="category-card">
+                            {{ articulo.categoria.categoria }}
+                        </h6>
+                        <h4>
+                            {{ articulo.titulo }}
+                        </h4>
+                        <p class="text-card-p">
+                            <i class="far fa-clock"></i> {{ articulo.fecha_publicacion }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    {% endfor %}
+</div>
+{% endif %} {% endfor %} {% endblock %}
