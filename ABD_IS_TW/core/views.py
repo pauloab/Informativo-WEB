@@ -24,6 +24,15 @@ def index(request: HttpRequest):
         return render(request, "index.html", context)
     return HttpResponseBadRequest()
 
+def recientes(request: HttpRequest):
+    context = {}
+
+    if request.method == "GET":
+        articulos = Articulo.objects.all()
+        context['articulos'] = articulos
+        context['titulo'] = 'Recientes'
+        return render(request, "articles.html", context)
+    return HttpResponseBadRequest()
 
 def login(request: HttpRequest):
     context = {}

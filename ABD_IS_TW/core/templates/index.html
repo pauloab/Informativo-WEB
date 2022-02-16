@@ -1,13 +1,13 @@
  {% extends 'layout/layoutMain.html' %} {% load static %} {% block title %}INICIO{% endblock%} {% block content %}
 <img class="img-fluid banner-logo" src="{% static 'img/LogoBanner.png' %}" alt="">
 <h1>
-    Populares
+    Recientes
 </h1>
 <div class="sub-tittle-border">
     <h2>
         <span>LAS NOTICIAS MÁS DESTACADAS DE LA SEMANA </span>
     </h2>
-    <a class="btn">
+    <a class="btn" href="{% url 'recents' %}">
         <i class="fas fa-plus-circle"></i> Más noticias
     </a>
 </div>
@@ -49,7 +49,8 @@
     <h2>
         <span>{{ categoria.categoria }} más recientes de la semana </span>
     </h2>
-    <a class="btn">
+
+    <a class="btn" href="{% url 'articleByCategory' categoria.id %}">
         <i class="fas fa-plus-circle"></i> Más noticias
     </a>
 </div>
