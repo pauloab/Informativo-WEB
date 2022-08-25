@@ -20,5 +20,7 @@ urlpatterns = [
     path("user/news/edit/<int:id>/", views.edit_user_new, name="editUserNew"),
     path("user/news/delete/<int:id>/", views.delete_user_new, name="deleteUserNew"),
     path("news/search/", views.search_article, name="searchArticle"),
-    path("news/recents/", views.recientes, name="recents")
+    path("news/recents/", views.recientes, name="recents"),
+    path("suscripcion/", views.suscribirse, name="suscribirse"),
+    path("sugerencias/", views.escribir_sugerencia, name="sugerencias")
 ]

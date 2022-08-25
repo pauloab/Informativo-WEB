@@ -3,8 +3,9 @@ from audioop import reverse
 import random
 import re
 import string
+from telnetlib import STATUS
 from xml.dom import NotFoundErr
-from django.http import HttpResponseForbidden, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFound
 from django.shortcuts import redirect, render
 from django.http.request import HttpRequest
 from django.http.response import HttpResponseBadRequest
@@ -180,9 +181,8 @@ def add_category(request: HttpRequest):
     return HttpResponseBadRequest()
 
 def user_news_list(request: HttpRequest):
-    usuario = get_user(request)
-    if request.method == "GET" and usuario:
-        noticias = usuario.articulos.all()
+    if request.method == "GET":
+        noticias = Articulo.objects.all()
         context = {"noticias":noticias}
         return render(request, "userNewsList.html",context)
     return HttpResponseBadRequest()
@@ -211,9 +211,6 @@ def edit_user_new(request: HttpRequest, id: int):
         articulo = Articulo.objects.get(id=id)
     except Articulo.DoesNotExist:
         return HttpResponseNotFound()
-
-    if articulo.usuario != get_user(request):
-        return HttpResponseForbidden()
 
     if request.method == "GET":
         form = ArticuloForm(instance=articulo)
@@ -259,3 +256,10 @@ def search_article(request: HttpRequest ):
             return render(request, "articles.html", context)
              
     return HttpResponseBadRequest()
+
+def suscribirse(request: HttpRequest ):
+    return render(request, "suscripcion.html")
+
+def escribir_sugerencia(request: HttpRequest ):
+    return render(request,"sugerencias.html")
+

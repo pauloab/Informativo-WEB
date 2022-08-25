@@ -24,14 +24,34 @@
 <div class="row p-3">
     <div class="noticia-content col-12 col-md-9">
         {{ articulo.contenido.html|safe }}
+        
     </div>
+   
     <div class="col-12 col-md-3">
         {% include 'includes/categories.html' %}
     </div>
 </div>
+<div id="disqus_thread"></div>
 
 
 {% endblock %}
 {% block scripts %}
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://informaticos-web.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
 <script src="//cdn.quilljs.com/0.16.0/quill.min.js"></script>
 {% endblock %}

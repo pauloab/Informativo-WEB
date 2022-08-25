@@ -1,38 +1,35 @@
 {% load static %}
 <nav class="navbar p-0 navbar-expand-lg navbar-dark">
-	<div class="nav-container p-0">
-		<div class="burger-tittle">
-			<a class="btn" id="menu-btn">
-				<i class="fas fa-bars"></i>
-			</a>
-		</div>
-		<div class="search-container">
-			<form method="get" action="{% url 'searchArticle' %}" class="d-flex w-100">
-				<input
-					type="text"
-					placeholder="Buscar..."
-					class="form-control"
-					id="search"
-					name="search"
-				/>
-				<button type="submit" class="btn bg-light ml-2">
+    <div class="nav-container p-0">
+        <div class="burger-tittle">
+            <a class="btn" id="menu-btn">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="search-container">
+            <form method="get" action="{% url 'searchArticle' %}" class="d-flex w-100">
+                <input type="text" placeholder="Buscar..." class="form-control" id="search" name="search" />
+                <button type="submit" class="btn bg-light ml-2">
 					<i class="fas fa-search"></i>
 				</button>
-			</form>
-		</div>
-		{% if usuario %}
-		<a class="ml-auto" href="{% url 'userInfo' %}">
+            </form>
+        </div>
+        {% if usuario %}
+        <a class="ml-auto" href="{% url 'userInfo' %}">
 		{% if usuario.profile_picture %}
+		    
 			<img class="profile-pic-thumb" src="{{ usuario.profile_picture.url }}" alt="profile" >
 		{% else %}
 			<img class="img-fluid rounded-circle profile-pic-thumb" src="{% static "img/user-64.png" %}" alt="profile" >
 		{% endif %}
+		</a> {% else %}
+        <a href="{% url 'suscribirse' %}" class="btn btn-primary m-3 suscribe-btn ml-auto">
+			Suscríbete
 		</a>
-		{% else %}
-		<a href="{% url 'login' %}" class="btn btn-primary m-3 login-btn ml-auto">
+        <a href="{% url 'login' %}" class="btn btn-primary m-3 login-btn">
 			Iniciar sesión
-		</a>
-		{% endif %}
-	</div>
-	
+		</a> {% endif %}
+
+    </div>
+
 </nav>

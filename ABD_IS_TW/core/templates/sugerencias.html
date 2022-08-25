@@ -1,0 +1,28 @@
+{% extends 'layout/layoutMain.html' %} {% load static %} {% load crispy_forms_tags %} 
+{% block title %}Nueva Sugerencia{% endblock%} {% block styles %}
+<link rel="stylesheet" href="{% static 'css/sugerencias.css' %} ">
+<link rel="stylesheet" href="{% static 'css/styles.css' %} "> {% endblock %} {% block content %}
+
+
+<!-- Reset CSS -->
+<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+<section class="wrapper">
+
+    <div class="container">
+        <div class="img__container img--fire"><img src="{% static 'img/5435597.png' %}" alt="Fire" class="pop__img "></div>
+
+        <p class="pop__title">Tenga la oportunidad de comentar sugerencias constructivas!</p>
+        <p class="pop__text">Estas sugerencias de realizan de forma anonima. </p>
+        <form action="#" class="pop__form">
+            <input type="text" name="asunto" id="form--asunto" placeholder="Inserte el asunto" class="form__asunto">
+            <textarea style="resize: none;" name="descripcion " placeholder="Escriba su comemtario " class="form__des "></textarea>
+            <button type="submit " class="btn btn--accent btn--form ">Enviar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %} {% block scripts %} {% endblock %}

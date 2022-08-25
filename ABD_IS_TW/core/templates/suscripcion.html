@@ -1,0 +1,31 @@
+{% extends 'layout/layoutMain.html' %} 
+{% load static %} {% load crispy_forms_tags %} 
+{% block title %}Nueva Suscripcion{% endblock%} {% block styles %}
+<link rel="stylesheet" href="{% static 'css/suscribe.css' %} ">
+<link rel="stylesheet" href="{% static 'css/styles.css' %} "> {% endblock %} {% block content %}
+
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <section class="wrapper">
+
+        <div class="container">
+            <div class="img__container img--fire"><img src="{% static 'img/newspaper-solid.svg' %}" alt="Fire" class="pop__img "></div>
+
+            <p class="pop__title">Mantenganse al dia con las nuevas noticias acerca de la FIC!</p>
+            <p class="pop__text">Obtenga actualizaciones cada vez que se realice un nuevo post al correo. </p>
+            <form action="#" class="pop__form">
+                <input type="text" name="nom" id="form--email" placeholder="Ingrese su nombre" class="form__email">
+                <input type="email" name="ape" id="form--email" placeholder="Ingrese su apellido" class="form__email">
+                <input type="email" name="email" id="form--email" placeholder="Ingrese su correo electronico" class="form__email">
+                <button type="submit" class="btn btn--accent btn--form">Suscribase</button>
+            </form>
+        </div>
+    </section>
+
+
+    {% endblock %} {% block scripts %} {% endblock %}

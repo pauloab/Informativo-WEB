@@ -35,6 +35,16 @@ class Articulo(models.Model):
     categoria = models.ForeignKey(to=Categoria,null=False,blank=False,on_delete=models.CASCADE, related_name="articulos")
 
     
+class Sugerencias(models.Model):
+    descripcion_sug = models.TextField(null=False,blank=False)
+    asunto_sug = models.CharField(max_length=254,null=False,blank=False)
+    fecha_sug = models.DateField(null=False,blank=False,auto_now=True)
+
+class Suscripcion (models.Model):
+    correo_boletin = models.EmailField(max_length=50,null=False,blank=False,unique=True)
+    nom_boletin = models.CharField(max_length=50,null=False,blank=False)
+    ape_boletin = models.CharField(max_length=50,null=False,blank=False)
+    estado_sub = models.BooleanField(default=True)
 
 
 
