@@ -1,4 +1,4 @@
-Django==4.0.1
+Django==3.2.15
 django-ckeditor-5==0.0.14
 django-crispy-forms==1.14.0
 django-image-uploader-widget==0.1.4

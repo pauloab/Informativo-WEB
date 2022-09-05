@@ -22,5 +22,8 @@ urlpatterns = [
     path("news/search/", views.search_article, name="searchArticle"),
     path("news/recents/", views.recientes, name="recents"),
     path("suscripcion/", views.suscribirse, name="suscribirse"),
-    path("sugerencias/", views.escribir_sugerencia, name="sugerencias")
+    path("suscripcionList/delete/<int:id>/",views.delete_sub, name="deleteSub"),
+    path("suscripcionList/", views.suscribirseList, name="suscribirseList"),
+    path("sugerencias/", views.escribir_sugerencia, name="sugerencias"),
+    path("sugerenciasList/", views.sugerencia_listar, name="sugerenciasList")
 ]

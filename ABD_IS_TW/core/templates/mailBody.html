@@ -1,0 +1,130 @@
+{% load static %}
+<html>
+<head>
+  <style type="text/css">
+    #outlook a {padding:0;}
+    body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+    #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+    img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+    p {margin:0;}
+    a img {border:none;}
+    .image_fix {display:block;}
+  </style>
+</head>
+<body style="background-color: #F7F8FA;">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#F7F8FA">
+  <tr>
+    <td valign="top" align="center">
+    <table id="wrapper" style="max-width: 600px; padding:20px 10px;" cellpadding="0" cellspacing="0" border="0" width="100%" >
+    
+      <tr><td valign="top" height="20"></td></tr>
+      <tr>
+        <td valign="top" align="center">
+          <table cellpadding="0" cellspacing="0" width="100%" >
+            <tr height="25" style="height:25px">
+              <td></td>
+              <td rowspan="2" valign="top" align="center" width="78" height="110" bgcolor="white">
+                <div style="
+                        display: block;
+                        width: 78px;
+                        height: 110px;
+                        outline:none;
+                        text-decoration: none!important;">
+                  <img class="image_fix" src="{% static 'img/logo.png' %}" alt="Informaticos-Web" title="Informaticos-Web" width="78" height="110" style="
+                    outline:none;
+                    text-decoration:none;
+                    -ms-interpolation-mode: bicubic;
+                  "/>
+              </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr height="75">
+              <td style="
+                border-left: 1px solid #ebebeb;
+                border-top: 1px solid #ebebeb;
+                border-radius: 5px 0 0 0;" bgcolor="white" cellpadding="0" cellspacing="0" border="0" height="85"></td>
+              <td style="
+                border-right: 1px solid #ebebeb;
+                border-top: 1px solid #ebebeb;
+                border-radius: 0 5px 0 0;" bgcolor="white" cellpadding="0" cellspacing="0" border="0" height="85"></td>
+            </tr>
+          </table>
+          <table style="
+            border-left: 1px solid #ebebeb;
+            border-right: 1px solid #ebebeb;
+            border-bottom: 1px solid #ebebeb;
+            border-radius: 0 0 5px 5px;" bgcolor="white" cellpadding="0" cellspacing="0" border="0" width="100%" >
+            <tr>
+              <td valign="top" align="center">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                  <tr>
+                    <td width="30"></td>
+                    <td>
+                      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                        <tr><td valign="top" height="30"></td></tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            
+                            <h1 style="
+                              font-family:'Avenir Next','Helvetica Neue', Helvetica, Arial, sans-serif;
+                              font-size: 22px;
+                              text-align: center;
+                              line-height: 1.5em;
+                              margin: 0 0 10px 0;
+                              font-weight: 400;
+                              color: #202020;">
+                              {% block title %} {% endblock %}
+                            </h1>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div style="
+                                    outline:none;
+                                    text-decoration: none!important;">
+                              <span style="display: block; margin: 20px 0 40px 0; text-align: center">
+                                <img style="box-shadow: 0 0 0 0 rgba(0,0,0,.4);" src="{% block image %}{% endblock %}" width="200px" height="auto">
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td valign="top" align="center">
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" width="220" >
+                              <tr>
+                                <td valign="top" align="center" bgcolor="#FF9D0E" style="
+                                  display: block;
+                                  border-radius:5px;
+                                  background-image: -o-linear-gradient(90deg, #FF7539  0%, #FF9D0E 100%);
+                                  background-image: -moz-linear-gradient(90deg, #FF7539  0%, #FF9D0E 100%);
+                                  background-image: -webkit-linear-gradient(90deg, #FF7539  0%, #FF9D0E 100%);
+                                  background-image: -ms-linear-gradient(90deg, #FF7539  0%, #FF9D0E 100%);
+                                  background-image: linear-gradient(0deg, #FF7539  0%, #FF9D0E 100%);">
+                                  <a href="{% block url %}{% endblock %}" target="_blank" style="display:inline-block;width:100%;height: 45px!important;font-family:'Avenir Next','Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 20px!important;line-height: 45px!important;font-weight: 600!important;color: white!important;text-decoration: none!important;">
+                                    Ver Noticia
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr><td valign="top" height="60"></td></tr>
+                      </table>
+                    </td>
+                    <td width="30"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<!-- End of wrapper table -->
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'layout/layoutMain.html' %}
+{% load static %} 
+{% block title %}Sugerencias{% endblock%} 
+{% block content %}
+<div class="d-flex justify-content-between align-items-end">
+   <h1>
+       Sugerencias
+   </h1>
+</div>
+
+
+<div class="col-12  my-3 ">
+   {% if sugerencias %}
+   <table class="table bg-light table-striped table-bordered shadow ">
+       <thead>
+           <tr>
+               <td scope="col"><b>Asunto</b></td>
+               <td scope="col"><b>Descripcion</b></td>
+               <td scope="col"><b>Fecha</b></td>
+           </tr>
+       </thead>
+       <tbody>
+           {% for sugerencia in sugerencias %}
+           <tr >
+               <td scope="row">{{sugerencia.asunto_sug}}</td>
+               <td scope="row">{{sugerencia.descripcion_sug}}</td>
+               <td scope="row">{{sugerencia.fecha_sug}}</td>
+           </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+   {% else %}
+   <h1>No hay sugerencias para mostrar.</h1>
+   {% endif %}
+</div>
+{% endblock %}

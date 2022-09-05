@@ -35,12 +35,25 @@
                 <span class="mx-2">Mis Noticias</span>
             </a>
 		</li>
-		{% endif %}
+		<li class="mt-5" >
+			<a class="nav-link" href="{% url 'sugerenciasList' %}">
+				<i class="fas fa-comment-alt-medical"></i>
+				<span class="mx-2"> Lista de Sugerencias</span>
+			</a>
+		</li>
+		<li class="mt-2" >
+			<a class="nav-link" href="{% url 'suscribirseList' %}">
+				<i class="fas fa-comment-alt-medical"></i>
+				<span class="mx-2"> Lista de Sucripciones</span>
+			</a>
+		</li>
+		{% endif %} {% if not usuario %}
 		<li class="mt-5" >
 			<a class="nav-link" href="{% url 'sugerencias' %}">
 				<i class="fas fa-comment-alt-medical"></i>
 				<span class="mx-2">Sugerencias</span>
 			</a>
 		</li>
+		{% endif %}
 	</ul>
 </div>

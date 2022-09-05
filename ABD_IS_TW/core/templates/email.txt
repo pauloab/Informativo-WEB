@@ -1,0 +1,6 @@
+
+Mira esta nueva noticia
+{% block title %} {% endblock %}
+
+Visualizala mediante este enlace
+{% block url %}{% endblock %}

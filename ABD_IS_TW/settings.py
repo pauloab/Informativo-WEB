@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-hfs8$7pzk2i*_+a3^&jum00(c!zo7*rn5f2-r4c9jt-ah95bl0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -142,4 +142,12 @@ MEDIA_URL = '/media/'
 
 # Cryspy Forms Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Mail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vegageovanny36@gmail.com'
+EMAIL_HOST_PASSWORD = 'cbdlqbxesnojplck'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

@@ -9,9 +9,12 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseNotFoun
 from django.shortcuts import redirect, render
 from django.http.request import HttpRequest
 from django.http.response import HttpResponseBadRequest
+from django.urls import reverse
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
 
 # Local Imports
-from ABD_IS_TW.core.models import Articulo, Usuario, Categoria
+from ABD_IS_TW.core.models import Articulo, Sugerencias, Suscripcion, Usuario, Categoria
 from ABD_IS_TW.core.forms import LoginForm, UserForm, CategoriaForm, ArticuloForm
 from ABD_IS_TW.core.utils import get_user
 
@@ -199,6 +202,18 @@ def add_user_new(request: HttpRequest):
         form = ArticuloForm(request.POST, request.FILES, instance= articulo)
         if form.is_valid():
             form.save()
+
+            emails = Suscripcion.objects.values_list("correo_boletin",flat=True)
+            context = {"title":form.cleaned_data["titulo"],"image":articulo.portada.url,"url":reverse('article',kwargs={'id':articulo.id})}
+            plano = get_template("email.txt")
+            html = get_template("mailBody.html")
+            asunto = articulo.titulo+" - Informáticos-Web"
+            desde = 'vegageovanny36@gmail.com'
+            plano = plano.render(context)
+            html = html.render(context)
+            mensaje = EmailMultiAlternatives(asunto,plano,desde,emails)
+            mensaje.attach_alternative(html, 'text/html')
+            mensaje.send()
             return redirect("userNewsList")
         context = {"articuloForm":form}
         return render(request,"addUserNew.html",context)
@@ -258,8 +273,59 @@ def search_article(request: HttpRequest ):
     return HttpResponseBadRequest()
 
 def suscribirse(request: HttpRequest ):
-    return render(request, "suscripcion.html")
+    contex = {}
+    if request.method == 'POST':
+        correo = request.POST.get("email")
+        nombre = request.POST.get("nom")
+        apellido = request.POST.get("ape")
+        print(f"{ correo }-{ nombre }-{ apellido }")
+        if correo and nombre and apellido:
+            sub = Suscripcion(correo_boletin = correo, nom_boletin = nombre, ape_boletin = apellido)
+            sub.save()
+            contex["msg"] = "Se ha guardado con exito la suscripcion."
+        else:
+            contex["msg"] = "Datos incompletos, su operacion no se llevo acabo."
+
+    return render(request,"suscripcion.html",context=contex)
+
+def suscribirseList(request: HttpRequest):
+    if request.method == "GET":
+        suscribirse = Suscripcion.objects.all()
+        context = {"suscribirse":suscribirse}
+        return render(request, "suscripcionList.html",context)
+    return HttpResponseBadRequest()
+
+def delete_sub(request: HttpRequest, id: int):
+    if request.method == "GET":
+        if get_user(request):
+            try:
+                subs = Suscripcion.objects.get(id=id)
+                subs.delete()
+                return redirect("suscribirseList")
+            except Suscripcion.DoesNotExist:
+                return HttpResponseNotFound()
+    return HttpResponseBadRequest()
 
 def escribir_sugerencia(request: HttpRequest ):
-    return render(request,"sugerencias.html")
+    contex = {}
+    if request.method == 'POST':
+        asunto = request.POST.get("asunto")
+        descripcion = request.POST.get("descripcion")
+        print(f"{ asunto }-{ descripcion }")
+        if asunto and descripcion:
+            sug = Sugerencias(asunto_sug = asunto, descripcion_sug = descripcion)
+            sug.save()
+            contex["msg"] = "Se ha guardado con exito su sugerencia."
+        else:
+            contex["msg"] = "Datos incompletos, su operacion no se llevo acabo."
+
+    return render(request,"sugerencias.html",context=contex)
+
+def sugerencia_listar(request: HttpRequest ):
+    if request.method == "GET":
+        sugerencias = Sugerencias.objects.all()
+        context = {"sugerencias":sugerencias}
+        return render(request, "sugerenciasList.html",context)
+    return HttpResponseBadRequest()
+
 
