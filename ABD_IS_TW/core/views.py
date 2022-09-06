@@ -1,5 +1,7 @@
 from ast import If, Return, Try
 from audioop import reverse
+from base64 import encode
+import base64
 import random
 import re
 import string
@@ -202,9 +204,13 @@ def add_user_new(request: HttpRequest):
         form = ArticuloForm(request.POST, request.FILES, instance= articulo)
         if form.is_valid():
             form.save()
-
+         
             emails = Suscripcion.objects.values_list("correo_boletin",flat=True)
-            context = {"title":form.cleaned_data["titulo"],"image":articulo.portada.url,"url":request.build_absolute_uri(reverse('article',kwargs={'id':articulo.id}))}
+            with open(articulo.portada.path,"rb") as image_file: 
+                encoded = base64.b64encode(image_file.read()).decode("utf-8")
+            print(encoded)
+            context = {"title":form.cleaned_data["titulo"],"image": encoded,
+            "url":request.build_absolute_uri(reverse('article',kwargs={'id':articulo.id}))}
             plano = get_template("email.txt")
             html = get_template("mailBody.html")
             asunto = articulo.titulo+" - Informáticos-Web"
