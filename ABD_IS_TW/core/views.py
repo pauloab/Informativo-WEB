@@ -204,13 +204,15 @@ def add_user_new(request: HttpRequest):
             form.save()
 
             emails = Suscripcion.objects.values_list("correo_boletin",flat=True)
-            context = {"title":form.cleaned_data["titulo"],"image":articulo.portada.url,"url":reverse('article',kwargs={'id':articulo.id})}
+            context = {"title":form.cleaned_data["titulo"],"image":articulo.portada.url,"url":request.build_absolute_uri(reverse('article',kwargs={'id':articulo.id}))}
             plano = get_template("email.txt")
             html = get_template("mailBody.html")
             asunto = articulo.titulo+" - Informáticos-Web"
             desde = 'vegageovanny36@gmail.com'
             plano = plano.render(context)
             html = html.render(context)
+            print(html)
+            print()
             mensaje = EmailMultiAlternatives(asunto,plano,desde,emails)
             mensaje.attach_alternative(html, 'text/html')
             mensaje.send()
